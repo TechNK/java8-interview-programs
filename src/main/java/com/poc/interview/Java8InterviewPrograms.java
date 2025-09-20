@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Java8InterviewPrograms {
 
@@ -24,15 +25,20 @@ public class Java8InterviewPrograms {
         System.out.println(" , Min: " +numbers.stream().min(Integer::compareTo).orElse(null));
 
         // ------------------------------------------------------------
-        //
-        //
+        // 3. Sort a list(Asc & Desc)
+        // Java 8: sorted() and sorted(Comparator.reverseOrder())
         // ------------------------------------------------------------
+        List<Integer> sortNum = Arrays.asList(1,3,2,4,5,9);
+        System.out.print(" 3. Asc: " + sortNum.stream().sorted().collect(Collectors.toList()));
+        System.out.println(" And Desc: " +sortNum.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList()));
 
         // ------------------------------------------------------------
-        //
-        //
+        // 4. Count/Collect Strings With specific prefix 'A'
+        // Using Java 8: filter + collect/toList(or count)
         // ------------------------------------------------------------
-
+        List<String> names = Arrays.asList("Ashish", "NKSingh", "Smriti", "Ankita", "Anindita", "Sameer", "Deepak", "Muzammil", "Shubham");
+        System.out.println(" 4. StartWith 'A': " +names.stream().filter(name -> name.startsWith("A")).collect(Collectors.toList()));
+        System.out.println(" ");
         // ------------------------------------------------------------
         //
         //
